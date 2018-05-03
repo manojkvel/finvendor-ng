@@ -1,0 +1,85 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.fv</groupId>
+	<artifactId>finvendor-parent</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<modules>
+		<module>finvendor-common</module>
+		<module>finvendor-model</module>
+		<module>finvendor-model-pojo</module>
+		<module>finvendor-server</module>
+		<module>finvendor-server-webapi</module>
+		<module>finvendor-web</module>
+	</modules>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>com.ays</groupId>
+				<artifactId>finvendor-common</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.ays</groupId>
+				<artifactId>finvendor-model</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.ays</groupId>
+				<artifactId>finvendor-model-pojo</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.ays</groupId>
+				<artifactId>finvendor-server</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.ays</groupId>
+				<artifactId>finvendor-server-web-api</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.ays</groupId>
+				<artifactId>finvendor-web</artifactId>
+				<type>war</type>
+				<version>${project.version}</version>
+			</dependency>
+
+			<!-- Others common jar dependencies -->
+
+		</dependencies>
+	</dependencyManagement>
+	<build>
+		<plugins>
+			<!-- Added Java8 support -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<source>${jdk.version}</source>
+					<target>${jdk.version}</target>
+				</configuration>
+			</plugin>
+
+			<!-- Added JUnit support -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.18.1</version>
+			</plugin>
+		</plugins>
+	</build>
+
+	<!-- Properties -->
+	<properties>
+		<jdk.version>1.8</jdk.version>
+		<logback.version>1.0.7</logback.version>
+		<jackson.version>2.8.1</jackson.version>
+		<resteasy.version>3.1.4.Final</resteasy.version>
+		<project.version>0.0.1-SNAPSHOT</project.version>
+	</properties>
+
+</project>
